@@ -1,7 +1,7 @@
 import Title from "@/components/Title";
 import ValidityBox from "@/components/ValidityBox";
-import { createContext, useEffect, useState } from "react";
-export const GlobalData = createContext({});
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
   const [allData, setAllData] = useState([]);
@@ -63,7 +63,7 @@ export default function Home() {
 
   // console.log(eligibility);
   return (
-    <GlobalData.Provider value={globalData}>
+  
       <main className="container">
         <form className="grid grid-cols-12 gap-4 ">
           <div className=" col-span-9 mx-auto w-full p-2 ">
@@ -86,6 +86,6 @@ export default function Home() {
           <div className=" col-span-3 mx-auto w-full"></div>
         </form>
       </main>
-    </GlobalData.Provider>
+   
   );
 }
