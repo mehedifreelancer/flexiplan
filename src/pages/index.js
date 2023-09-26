@@ -10,10 +10,7 @@ export default function Home() {
   const [dayLimit, setDayLimit] = useState(3);
   // console.log(dayNo);
 
-  const globalData = {
-    selectedData,
-    setSelectedData,
-  };
+
   useEffect(() => {
     fetch("/json/bubble-map.json")
       .then((response) => response.json()) // Convert response to JSON {voice:[], bubble:[]}
