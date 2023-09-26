@@ -11,7 +11,6 @@ const ValidityBox = ({
 }) => {
   const label = useLabelHelper(bubbleData.key);
 
-  console.log(dataEligibility);
   return (
     <div className="flex align-center  mt-[24px] border-0 border-b-[1px] pb-5 w-full">
       <div className="w-[45%]">
@@ -20,12 +19,19 @@ const ValidityBox = ({
           selectedValue={selectedData[bubbleData.key]}
         />
       </div>
-      <div className="flex flex-wrap gap-2 mt-[6px] text-right w-[55%]">
+      <div
+        className={`flex flex-wrap gap-2 mt-[6px] text-right w-[55%] ${
+          bubbleData.key === "mca" ? "justify-end" : ""
+        }`}
+      >
         {bubbleData.key !== "mca" ? (
           <>
             {bubbleData.data.map((item, index) => (
               <Bubble
-                eachEligibility={""}
+                eachEligibility={
+                  dataEligibility[bubbleData.key] !== undefined &&
+                  dataEligibility[bubbleData.key][index]
+                }
                 clickedOnButton={clickedOnButton}
                 key={index}
                 name={bubbleData.key}

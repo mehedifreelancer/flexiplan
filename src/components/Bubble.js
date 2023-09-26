@@ -7,14 +7,17 @@ const Bubble = ({
   activeItem,
   unit,
   clickedOnButton,
-  available,
+  eachEligibility,
 }) => {
+  // console.log(eachEligibility === undefined ? "Not" : "yes");
   return (
     <div>
       <button
         onClick={(event) => clickedOnButton(event, name, data)}
         style={{ backgroundColor: `${activeItem === data ? activeColor : ""}` }}
-        className={`h-[56px] w-[56px] rounded-[50%]  p-0 text-white border`}
+        className={`h-[56px] w-[56px] rounded-[50%]  p-0 text-white border ${
+          eachEligibility == undefined && name !== "longevity" ? "disabled" : ""
+        }`}
       >
         <span
           className={`${
